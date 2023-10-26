@@ -6,7 +6,7 @@ def menu():
     print('-------------')
     print('1. Encode')
     print('2. Decode')
-    print('3. Quit')
+    print('3. Quit\n')
 
     menu_selection = int(input('Please enter an option: '))
 
@@ -30,8 +30,15 @@ def encode(user_input):
     return encoded_password
 
 
-#def decode(encoded_password):
-    # to be written by partner
+# decode function by Ally Greenberg
+def decode(encoded_password):
+        decode_string = ""
+        for each in encoded_password:
+            x = int(each)
+            x -= 3
+            a = str(x)
+            decode_string += a
+        return decode_string
 
 def main():
     global menu_selection
@@ -46,12 +53,12 @@ def main():
         if menu_selection == 1:
             user_input = input('Please enter your password to encode: ')
             encoded_password = encode(user_input)
-            print("Your password has been encoded and stored!")
+            print("Your password has been encoded and stored!\n")
 
         # calls decode function is option 3 is selected
-        #elif menu_selection == 2:
-            #decoded_password = decode(encoded_password)
-            #print(f'The encoded password is {encoded_password}, and the original password is {decoded_password}.')
+        elif menu_selection == 2:
+            decoded_password = decode(encoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {decoded_password}.\n')
 
 if __name__ == '__main__':
     main()
